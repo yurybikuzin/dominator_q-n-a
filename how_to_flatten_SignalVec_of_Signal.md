@@ -1,4 +1,4 @@
-## Question "How to flatten SignalVec of Signal"
+## How to flatten SignalVec of Signal?
 
 I have following mod:
 ```
@@ -106,7 +106,7 @@ I'm getting:
 
 The error concerns `.flatten()` in `fn sum_of_judges_from_clubs_of_the_city`, not `.flatten()` in `is_selected_city_of_club_of_the_dancer`
 
-## Pauan's answer
+### Pauan's answer
 
 the issue is that you're calling `flatten()`, but the types are wrong
 `flatten()` exists on `Signal`, not `SignalVec`
@@ -150,4 +150,19 @@ some_signal_vec.to_signal_map(|elements| {
 however, that's rather inefficient, since it will call that closure again every time any element in the `SignalVec` changes
 using map_signal should be a lot more efficient
 and then you don't need the `flatten()`
+
+
+## Is there any consideration of choosing Arc over Rc in dominator app?
+
+Is there any consideration of choosing Arc over Rc in dominator app? Or in the frontend use case?
+
+For example of code see [Question "How to flatten SignalVec of Signal"](#how-to-flatten-signalvec-of-signal)
+
+### Pauan's answer
+
+I just always use Arc, in a single-threaded app there shouldn't be any performance difference, and in a multi-threaded app it allows you to share it between threads
+but if you're using it in a single thread then Rc is perfectly fine too
+
+but if you want to store it in a static then you have to use Arc
+so if you're using Rc then you have to use thread_local! instead
 
