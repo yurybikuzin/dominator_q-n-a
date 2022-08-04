@@ -156,7 +156,7 @@ and then you don't need the `flatten()`
 
 Is there any consideration of choosing Arc over Rc in dominator app? Or in the frontend use case?
 
-For example of code see [Question "How to flatten SignalVec of Signal"](#how-to-flatten-signalvec-of-signal)
+For example of code see ["How to flatten SignalVec of Signal"](#how-to-flatten-signalvec-of-signal)
 
 ### Pauan's answer
 
