@@ -104,9 +104,9 @@ I'm getting:
      |              ^^^^^^^ method cannot be called on `futures_signals::signal_vec::FilterMap<MutableSignalVec<std::sync::Arc<to_pauan::Club>>, [closure@a100_front/src/to_pauan.rs:80:40: 90:18]>` due to unsatisfied trait bounds
 ```
 
-The error concerns `.flatten` in `fn sum_of_judges_from_clubs_of_the_city`, not `.flatten` in `is_selected_city_of_club_of_the_dancer`
+The error concerns `.flatten()` in `fn sum_of_judges_from_clubs_of_the_city`, not `.flatten()` in `is_selected_city_of_club_of_the_dancer`
 
-## Pauan's answer:
+## Pauan's answer
 
 the issue is that you're calling `flatten()`, but the types are wrong
 `flatten()` exists on `Signal`, not `SignalVec`
